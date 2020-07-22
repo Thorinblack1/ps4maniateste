@@ -28,7 +28,23 @@
 	<script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://ps4mania.com/fale-conosco/"},"headline":"FALE CONOSCO","datePublished":"2020-05-08T16:29","dateModified":"2020-07-21T00:20","image":{"@type":"ImageObject","url":"https://ps4mania.com/media/website/logo.png","height":476,"width":476},"description":"[contact-form][contact-field label=\"Nome\" type=\"name\" required=\"true\" /][contact-field label=\"E-mail\" type=\"email\" required=\"true\" /][contact-field label=\"Site\" type=\"url\" /][contact-field label=\"Mensagem\" type=\"textarea\" /][/contact-form]","author":{"@type":"Person","name":"Jordan Florio de Oliveira"},"publisher":{"@type":"Organization","name":"Jordan Florio de Oliveira","logo":{"@type":"ImageObject","url":"https://ps4mania.com/media/website/logo.png","height":476,"width":476}}}</script>	
         
 	<script data-ad-client="ca-pub-1304086354041942" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2597442083836605');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2597442083836605&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
 </head>
 <body>
 	<header class="topbar" id="js-header">
@@ -55,7 +71,7 @@
             <div class="infobar">
                     <div class="infobar__update">
                         Last Updated: 
-                        <time datetime="2020-07-22T12:45">
+                        <time datetime="2020-07-22T13:04">
                                 Julho 22, 2020
                         </time>
                     </div>
@@ -239,5 +255,137 @@
    </script>
 
 
+        <div class="cookie-popup js-cookie-popup  cookie-popup--uses-badge">
+            <h2>este Site usa cookies</h2>
+            
+            <p>
+                Esse site usa cookies para melhorar a sua navegação. Confira mais detalhes sobre esses cookies abaixo
+                <a href="https://ps4mania.com/politica-de-privacidade/">
+                    More details...
+                </a>
+            </p>
+
+            <form>
+                
+                <input
+                    id="gdpr-necessary"
+                    name="gdpr-necessary"
+                    checked="checked"
+                    disabled="disabled"
+                    type="checkbox">
+                <label for="gdpr-necessary">
+                    Required
+                </label>
+            <input
+                id="gdpr-functions"
+                name="gdpr-functions"
+                type="checkbox">
+            <label for="gdpr-functions">
+                Functionality
+            </label>
+            <input
+                id="gdpr-analytics"
+                name="gdpr-analytics"
+                type="checkbox">
+            <label for="gdpr-analytics">
+                Analytical
+            </label>
+            <input
+                id="gdpr-marketing"
+                name="gdpr-marketing"
+                type="checkbox">
+            <label for="gdpr-marketing">
+                Marketing
+            </label>
+
+                <p class="cookie-popup__save-wrapper">
+                    <button type="submit" class="cookie-popup__save">
+                        Save
+                    </button>
+                </p>
+            </form>
+
+            <span class="cookie-popup-label">Cookie Policy</span>
+        </div>
+        <script>
+            (function() {
+                function addScript (src, inline) {
+                    var newScript = document.createElement('script');
+
+                    if (src) {
+                        newScript.setAttribute('src', src);
+                    }
+
+                    if (inline) {
+                        newScript.text = inline;
+                    }
+
+                    document.body.appendChild(newScript);
+                }
+
+                var popup = document.querySelector('.js-cookie-popup');
+                var checkboxes = popup.querySelectorAll('input[type="checkbox"]');
+                var save = popup.querySelector('button');
+                var currentConfig = localStorage.getItem('publii-gdpr-allowed-cookies');
+                var blockedScripts = document.querySelectorAll('script[type^="gdpr-blocker/"]');
+                
+
+                popup.addEventListener('click', function() {
+                    if (!popup.classList.contains('cookie-popup--is-sticky')) {
+                        popup.classList.add('cookie-popup--is-sticky');
+                    }
+                });
+
+                save.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    popup.classList.remove('cookie-popup--is-sticky');
+                    var allowedGroups = [];
+
+                    for (var i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i].checked) {
+                            var groupName = checkboxes[i].getAttribute('name').replace('gdpr-', '');
+                            var scripts = document.querySelectorAll('script[type="gdpr-blocker/' + groupName + '"]');
+
+                            for (var j = 0; j < scripts.length; j++) {
+                                addScript(scripts[j].src, scripts[j].text);
+                            }
+
+                            allowedGroups.push(groupName);
+                        }
+                    }
+
+                    localStorage.setItem('publii-gdpr-allowed-cookies', allowedGroups.join(','));
+                    popup.classList.remove('cookie-popup--is-sticky');
+
+                    setTimeout(function () {
+                        if (currentConfig !== null) {
+                            window.location.reload();
+                        }
+                    }, 250);
+                });
+
+                if (currentConfig === null) {
+                    popup.classList.add('cookie-popup--is-sticky');
+                } else {
+                    if (currentConfig !== '') {
+                        var allowedGroups = currentConfig.split(',');
+
+                        for (var i = 0; i < allowedGroups.length; i++) {
+                            var scripts = document.querySelectorAll('script[type="gdpr-blocker/' + allowedGroups[i] + '"]');
+                            var checkbox = popup.querySelector('input[type="checkbox"][name="gdpr-' + allowedGroups[i] + '"]');
+
+                            if (checkbox) {
+                                checkbox.checked = true;
+                            }
+
+                            for (var j = 0; j < scripts.length; j++) {
+                                addScript(scripts[j].src, scripts[j].text);
+                            }
+                        }
+                    }
+                }
+            })();
+        </script>
 </body>
 </html>
